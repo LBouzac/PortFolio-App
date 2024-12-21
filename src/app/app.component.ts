@@ -1,12 +1,24 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { AboutMeComponent } from './pages/about-me/about-me.component';
+import { IndexComponent } from './pages/index/index.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    SearchbarComponent,
+    IndexComponent,
+    // AboutMeComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'PortFolio-app';
+  count: number = 0;
+  $search: String = "";
+
+  increaseCount() {
+    this.count ++;
+  }
 }
